@@ -27,4 +27,3 @@ def measure_time(n: int, max_delay: int) -> float:
 
     total_time = end_time - start_time  # Calculate total elapsed time
     return total_time / n  # Return the average time per coroutine
-    
