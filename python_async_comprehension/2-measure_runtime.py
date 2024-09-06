@@ -1,29 +1,28 @@
 #!/usr/bin/env python3
 """
-This module contains a function to measure the runtime of wait_n.
+This module contains a coroutine to measure
+    the total runtime of async_comprehension
+    executed in parallel.
 """
 
 
 import time
 import asyncio
-wait_n = __import__('1-concurrent_coroutines').wait_n
+async_comprehension = __import__('1-async_comprehension').async_comprehension
 
 
-def measure_time(n: int, max_delay: int) -> float:
+async def measure_runtime() -> float:
     """
-    Measures the total execution time for wait_n
-        and returns the average time per coroutine.
-
-    Args:
-        n (int): Number of times to call wait_random.
-        max_delay (int): Maximum delay in seconds for each wait_random call.
+    Executes async_comprehension four times in parallel
+    and measures the total runtime.
 
     Returns:
-        float: Average execution time per coroutine.
+        float: The total runtime in seconds.
     """
-    start_time = time.time()  # Start the timer
-    asyncio.run(wait_n(n, max_delay))  # Run the wait_n function asynchronously
-    end_time = time.time()  # Stop the timer
-
-    total_time = end_time - start_time  # Calculate total elapsed time
-    return total_time / n  # Return the average time per coroutine
+    tasks = []
+    start_time = time.time()
+    for i in range(4):
+        tasks.append(asyncio.create_task(async_comprehension()))
+    await asyncio.gather(*tasks)
+    end_time = time.time()
+    return end_time - start_time
