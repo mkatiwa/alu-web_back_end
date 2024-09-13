@@ -1,1 +1,1 @@
-Leraning pegination
+Learning pegination
