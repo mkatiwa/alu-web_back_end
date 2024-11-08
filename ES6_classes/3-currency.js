@@ -9,7 +9,6 @@ export default class Currency {
   get name() {
     return this._name;
 
-
   }
     set code(newCode) {
 
