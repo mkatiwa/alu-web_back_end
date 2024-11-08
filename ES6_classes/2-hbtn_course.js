@@ -7,7 +7,7 @@ throw TypeError('students must be an array of strings');
 }
 this._name = name;
 this._length = length;
-this._students = students;
+    this._students = students;
 }
 
     get name() {
