@@ -3,21 +3,17 @@ export class HolbertonClass {
     this._year = year;
     this._location = location;
   }
-
   get year() {
     return this._year;
   }
-
   get location() {
     return this._location;
   }
 }
-
-  const class2019 = new HolbertonClass(2019, 'San Francisco');
-  const class2020 = new HolbertonClass(2020, 'San Francisco');
-
-  // studentHolberton.js
-  export class StudentHolberton {
+const class2019 = new HolbertonClass(2019, 'San Francisco');
+const class2020 = new HolbertonClass(2020, 'San Francisco');
+// studentHolberton.js
+export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
     this._firstName = firstName;
     this._lastName = lastName;
@@ -27,7 +23,6 @@ export class HolbertonClass {
   get fullName() {
     return `${this._firstName} ${this._lastName}`;
 }
-
   get holbertonClass() {
     return this._holbertonClass;
 }
